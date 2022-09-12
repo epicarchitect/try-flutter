@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_app/screen/album.dart';
 
 import 'albums.dart';
 
@@ -21,4 +20,3 @@ class _HomeState extends State<HomeScreen> {
     );
   }
 }
-

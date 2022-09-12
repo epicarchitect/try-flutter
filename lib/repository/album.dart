@@ -30,10 +30,13 @@ class AlbumRepository {
     return Album(userId: map['userId'], id: map['id'], title: map['title']);
   }
 
-  List<Album> _albumsFromJson(String data) =>
-      List<Album>.from(jsonDecode(data).map((map) => Album(
+  List<Album> _albumsFromJson(String data) => List<Album>.from(
+        jsonDecode(data).map(
+          (map) => Album(
             userId: map['userId'],
             id: map['id'],
             title: map['title'],
-          )));
+          ),
+        ),
+      );
 }

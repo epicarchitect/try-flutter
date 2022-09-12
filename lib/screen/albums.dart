@@ -21,15 +21,18 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
   }
 
   void _openAlbum(Album album) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('album screen'),
-        ),
-        body: AlbumScreen(album: album),
-      );
-    }));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return Scaffold(
+            appBar: AppBar(
+              title: const Text('album screen'),
+            ),
+            body: AlbumScreen(album: album),
+          );
+        },
+      ),
+    );
   }
 
   @override
