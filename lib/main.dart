@@ -33,6 +33,7 @@ class RandomWords extends StatefulWidget {
 
 class _RandomWordsState extends State<RandomWords> {
   final _suggestions = generateWordPairs().take(100).toList();
+  final _saved = <WordPair>{};
   final _biggerFont = const TextStyle(fontSize: 18);
 
   @override
@@ -40,11 +41,27 @@ class _RandomWordsState extends State<RandomWords> {
     return ListView.builder(
       padding: const EdgeInsets.all(16),
       itemBuilder: (context, i) {
+        final item = _suggestions[i];
+        final isSaved = _saved.contains(item);
         return ListTile(
           title: Text(
-            _suggestions[i].asPascalCase,
+            item.asPascalCase,
             style: _biggerFont,
           ),
+          trailing: Icon(
+            isSaved ? Icons.favorite : Icons.favorite_border,
+            color: isSaved ? Colors.red : Colors.black38,
+            semanticLabel: isSaved ? 'Saved' : 'Not saved',
+          ),
+          onTap: () {
+            setState(() {
+              if (isSaved) {
+                _saved.remove(item);
+              } else {
+                _saved.add(item);
+              }
+            });
+          },
         );
       },
       itemCount: _suggestions.length,
