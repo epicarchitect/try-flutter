@@ -5,7 +5,7 @@ import '../data/Album.dart';
 class AlbumScreen extends StatelessWidget {
   final Album album;
 
-  const AlbumScreen({super.key, required this.album});
+  const AlbumScreen(this.album, {super.key});
 
   @override
   Widget build(BuildContext context) {

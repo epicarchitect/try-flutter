@@ -28,7 +28,7 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
             appBar: AppBar(
               title: const Text('album screen'),
             ),
-            body: AlbumScreen(album: album),
+            body: AlbumScreen(album),
           );
         },
       ),
@@ -37,32 +37,37 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: futureAlbums,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          final albums = snapshot.data;
-          if (albums == null) {
-            return const Text('Data null');
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('album screen'),
+      ),
+      body: FutureBuilder(
+        future: futureAlbums,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final albums = snapshot.data;
+            if (albums == null) {
+              return const Text('Data null');
+            }
+
+            return ListView.builder(
+              itemBuilder: (c, i) {
+                return ListTile(
+                  title: Text(albums[i].title),
+                  onTap: () => _openAlbum(albums[i]),
+                );
+              },
+              itemCount: albums.length,
+            ).build(context);
           }
 
-          return ListView.builder(
-            itemBuilder: (c, i) {
-              return ListTile(
-                title: Text(albums[i].title),
-                onTap: () => _openAlbum(albums[i]),
-              );
-            },
-            itemCount: albums.length,
-          ).build(context);
-        }
+          if (snapshot.hasError) {
+            return Text(snapshot.error.toString());
+          }
 
-        if (snapshot.hasError) {
-          return Text(snapshot.error.toString());
-        }
-
-        return const CircularProgressIndicator();
-      },
+          return const CircularProgressIndicator();
+        },
+      ),
     );
   }
 }
