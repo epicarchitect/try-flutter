@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_app/screen/home.dart';
+import 'package:flutter_test_app/screen/random_words.dart';
 
 class AppScreen extends StatelessWidget {
   const AppScreen({super.key});
@@ -14,7 +15,10 @@ class AppScreen extends StatelessWidget {
           foregroundColor: Colors.black38,
         ),
       ),
-      home: const HomeScreen(),
+      routes: {
+        '/': (_) => const HomeScreen(),
+        '/favorite_words': (_) => const FavoriteWords(),
+      },
     );
   }
 }
