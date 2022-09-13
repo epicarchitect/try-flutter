@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_app/screen/albums.dart';
+import 'package:flutter_test_app/screen/auth.dart';
 import 'package:flutter_test_app/screen/random_words.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class _HomeState extends State<HomeScreen> {
   final pages = const [
     RandomWords(),
     AlbumsScreen(),
+    AuthScreen(),
   ];
 
   @override
@@ -30,6 +32,10 @@ class _HomeState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.album),
             label: 'Albums',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.login),
+            label: 'Auth',
           ),
         ],
         onTap: (i) => setState(() => selectedTab = i),

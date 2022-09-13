@@ -9,12 +9,6 @@ class AppScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MaterialApp title',
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.red,
-          foregroundColor: Colors.black38,
-        ),
-      ),
       routes: {
         '/': (_) => const HomeScreen(),
         '/favorite_words': (_) => const FavoriteWords(),

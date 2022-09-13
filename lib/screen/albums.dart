@@ -47,7 +47,10 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
           if (snapshot.hasData) {
             final albums = snapshot.data;
             if (albums == null) {
-              return const Text('Data null');
+              return Container(
+                alignment: Alignment.center,
+                child: const Text('Data null'),
+              );
             }
 
             return ListView.builder(
@@ -62,10 +65,16 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
           }
 
           if (snapshot.hasError) {
-            return Text(snapshot.error.toString());
+            return Container(
+              alignment: Alignment.center,
+              child: Text(snapshot.error.toString()),
+            );
           }
 
-          return const CircularProgressIndicator();
+          return Container(
+            alignment: Alignment.center,
+            child: const CircularProgressIndicator(),
+          );
         },
       ),
     );
