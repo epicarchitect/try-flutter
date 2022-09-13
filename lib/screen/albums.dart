@@ -26,7 +26,7 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
         builder: (context) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text('album screen'),
+              title: const Text('Album Details'),
             ),
             body: AlbumScreen(album),
           );
@@ -39,7 +39,7 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('album screen'),
+        title: const Text('Albums'),
       ),
       body: FutureBuilder(
         future: futureAlbums,
