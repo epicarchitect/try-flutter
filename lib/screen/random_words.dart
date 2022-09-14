@@ -27,7 +27,16 @@ class FavoriteWords extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Favorites'),
       ),
-      body: ListView(children: divided),
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/wallpaper-forest.jpg'),
+            fit: BoxFit.cover,
+            opacity: 0.1,
+          )
+        ),
+        child: ListView(children: divided),
+      ),
     );
   }
 }
@@ -37,6 +46,12 @@ class RandomWords extends StatefulWidget {
 
   @override
   State<RandomWords> createState() => _RandomWordsState();
+}
+
+class RandomWordsViewModel extends ChangeNotifier {
+  void up() {
+    notifyListeners();
+  }
 }
 
 class _RandomWordsState extends State<RandomWords> {
