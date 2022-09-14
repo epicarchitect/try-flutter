@@ -6,3 +6,4 @@ linter:
     avoid_print: false
     require_trailing_commas: true
     prefer_single_quotes: true
+    always_declare_return_types: true
