@@ -33,7 +33,7 @@ class FavoriteWords extends StatelessWidget {
             image: AssetImage('assets/images/wallpaper-forest.jpg'),
             fit: BoxFit.cover,
             opacity: 0.1,
-          )
+          ),
         ),
         child: ListView(children: divided),
       ),
