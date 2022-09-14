@@ -1,7 +1,7 @@
-import 'dart:convert';
+import 'dart:convert' show jsonDecode;
 
-import 'package:flutter_test_app/data/Album.dart';
 import 'package:http/http.dart' as http;
+import 'package:myapp/data/Album.dart';
 
 class AlbumRepository {
   Future<Album?> getAlbum(int id) async {

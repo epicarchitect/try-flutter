@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_app/screen/app.dart';
+import 'package:myapp/feature/app/widget.dart';
 
 void main() {
-  runApp(const AppScreen());
+  runApp(AppWidget());
 }

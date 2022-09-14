@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/data/Album.dart';
+import 'package:myapp/di/di.dart';
+import 'package:myapp/feature/albums/details/widget.dart';
 
-import '../data/Album.dart';
-import '../di/di.dart';
-import 'album.dart';
-
-class AlbumsScreen extends StatefulWidget {
-  const AlbumsScreen({super.key});
+class AlbumsWidget extends StatefulWidget {
+  const AlbumsWidget({super.key});
 
   @override
-  State<AlbumsScreen> createState() => _AlbumsScreenState();
+  State<AlbumsWidget> createState() => _State();
 }
 
-class _AlbumsScreenState extends State<AlbumsScreen> {
-  late Future<List<Album>> futureAlbums;
+class _State extends State<AlbumsWidget> {
+  late Future<List<Album>> _futureAlbums;
 
   @override
   void initState() {
     super.initState();
-    futureAlbums = appDependencies.albumRepository.getAlbums();
+    _futureAlbums = appDependencies.albumRepository.getAlbums();
   }
 
   void _openAlbum(Album album) {
@@ -28,7 +27,7 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
             appBar: AppBar(
               title: const Text('Album Details'),
             ),
-            body: AlbumScreen(album),
+            body: AlbumDetailsWidget(album),
           );
         },
       ),
@@ -42,7 +41,7 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
         title: const Text('Albums'),
       ),
       body: FutureBuilder(
-        future: futureAlbums,
+        future: _futureAlbums,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final albums = snapshot.data;

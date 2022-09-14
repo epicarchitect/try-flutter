@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_app/screen/albums.dart';
-import 'package:flutter_test_app/screen/auth.dart';
-import 'package:flutter_test_app/screen/random_words.dart';
+import 'package:myapp/feature/albums/widget.dart';
+import 'package:myapp/feature/auth/widget.dart';
+import 'package:myapp/feature/words/widget.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeWidget extends StatefulWidget {
+  const HomeWidget({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeState();
+  State<HomeWidget> createState() => _State();
 }
 
-class _HomeState extends State<HomeScreen> {
-  int selectedTab = 0;
-  final pages = const [
-    RandomWords(),
-    AlbumsScreen(),
-    AuthScreen(),
+class _State extends State<HomeWidget> {
+  int _selectedTab = 0;
+
+  final _pages = const [
+    WordsWidget(),
+    AlbumsWidget(),
+    AuthWidget(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[selectedTab],
+      body: _pages[_selectedTab],
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedTab,
+        currentIndex: _selectedTab,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.wordpress),
@@ -38,7 +39,7 @@ class _HomeState extends State<HomeScreen> {
             label: 'Auth',
           ),
         ],
-        onTap: (i) => setState(() => selectedTab = i),
+        onTap: (i) => setState(() => _selectedTab = i),
       ),
     );
   }

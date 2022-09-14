@@ -1,4 +1,4 @@
-import '../repository/album.dart';
+import 'package:myapp/repository/album.dart';
 
 class AppDependencies {
   final albumRepository = AlbumRepository();
