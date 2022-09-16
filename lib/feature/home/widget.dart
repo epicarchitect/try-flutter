@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/di/di.dart';
+import 'package:myapp/feature/albums/model.dart';
 import 'package:myapp/feature/albums/widget.dart';
+import 'package:myapp/feature/albums/widget_model.dart';
 import 'package:myapp/feature/auth/widget.dart';
 import 'package:myapp/feature/words/widget.dart';
+import 'package:myapp/main.dart';
 
 class HomeWidget extends StatefulWidget {
-  const HomeWidget({super.key});
+  HomeWidget({super.key}) {
+    initLog();
+  }
 
   @override
-  State<HomeWidget> createState() => _State();
+  State<HomeWidget> createState() => _HomeWidgetState();
 }
 
-class _State extends State<HomeWidget> {
+class _HomeWidgetState extends State<HomeWidget> {
   int _selectedTab = 0;
 
-  final _pages = const [
+  _HomeWidgetState() {
+    initLog();
+  }
+
+  final _pages = [
     WordsWidget(),
-    AlbumsWidget(),
+    AlbumsWidget(
+        (_) => AlbumsWidgetModel(AlbumsModel(appDependencies.albumRepository))),
     AuthWidget(),
   ];
 

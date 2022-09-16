@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/feature/home/widget.dart';
 import 'package:myapp/feature/words/favorite/widget.dart';
+import 'package:myapp/main.dart';
 
 class AppWidget extends MaterialApp {
   AppWidget({super.key})
@@ -13,8 +14,10 @@ class AppWidget extends MaterialApp {
             ),
           ),
           routes: {
-            '/': (_) => const HomeWidget(),
-            '/favorite_words': (_) => const FavoriteWordsWidget(),
+            '/': (_) => HomeWidget(),
+            '/favorite_words': (_) => FavoriteWordsWidget(),
           },
-        );
+        ) {
+    initLog();
+  }
 }

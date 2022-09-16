@@ -1,5 +1,6 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/main.dart';
 
 class FavoriteWordsArguments {
   final List<WordPair> list;
@@ -8,7 +9,9 @@ class FavoriteWordsArguments {
 }
 
 class FavoriteWordsWidget extends StatelessWidget {
-  const FavoriteWordsWidget({Key? key}) : super(key: key);
+  FavoriteWordsWidget({Key? key}) : super(key: key) {
+    initLog();
+  }
 
   @override
   Widget build(BuildContext context) {

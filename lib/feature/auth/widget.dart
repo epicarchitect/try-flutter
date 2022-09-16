@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/main.dart';
 
 class AuthWidget extends StatefulWidget {
-  const AuthWidget({Key? key}) : super(key: key);
+  AuthWidget({Key? key}) : super(key: key) {
+    initLog();
+  }
 
   @override
-  State<AuthWidget> createState() => _State();
+  State<AuthWidget> createState() => _AuthWidgetState();
 }
 
-class _State extends State<AuthWidget> {
+class _AuthWidgetState extends State<AuthWidget> {
   final _formKey = GlobalKey<FormState>();
+
+  _AuthWidgetState() {
+    initLog();
+  }
 
   @override
   Widget build(BuildContext context) {

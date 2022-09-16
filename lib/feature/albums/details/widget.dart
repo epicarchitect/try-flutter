@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-
 import 'package:myapp/data/Album.dart';
+import 'package:myapp/main.dart';
 
 class AlbumDetailsWidget extends StatelessWidget {
   final Album album;
 
-  const AlbumDetailsWidget(this.album, {super.key});
+  AlbumDetailsWidget(this.album, {super.key}) {
+    initLog();
+  }
 
   @override
   Widget build(BuildContext context) {

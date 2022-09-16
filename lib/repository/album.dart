@@ -2,8 +2,13 @@ import 'dart:convert' show jsonDecode;
 
 import 'package:http/http.dart' as http;
 import 'package:myapp/data/Album.dart';
+import 'package:myapp/main.dart';
 
 class AlbumRepository {
+  AlbumRepository() {
+    initLog();
+  }
+
   Future<Album?> getAlbum(int id) async {
     final response = await http
         .get(Uri.parse('https://jsonplaceholder.typicode.com/albums/$id'));

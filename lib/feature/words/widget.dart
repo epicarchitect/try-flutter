@@ -1,15 +1,23 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/feature/words/favorite/widget.dart';
+import 'package:myapp/main.dart';
 
 class WordsWidget extends StatefulWidget {
-  const WordsWidget({super.key});
+  WordsWidget({super.key}) {
+    initLog();
+  }
 
   @override
-  State<WordsWidget> createState() => _State();
+  State<WordsWidget> createState() => _WordsWidgetState();
 }
 
-class _State extends State<WordsWidget> {
+class _WordsWidgetState extends State<WordsWidget> {
+
+  _WordsWidgetState() {
+    initLog();
+  }
+
   final _items = generateWordPairs().take(100).toList();
   final _favorite = <WordPair>[];
 
